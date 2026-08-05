@@ -29,10 +29,12 @@ export function ModeSwitcher({ mode, onChange }: ModeSwitcherProps) {
             aria-pressed={isActive}
             onClick={() => onChange(value)}
           >
-            <span className="mode-switcher__symbol" aria-hidden="true">
-              {MODE_SYMBOLS[value]}
+            <span className="mode-switcher__main">
+              <span className="mode-switcher__symbol" aria-hidden="true">
+                {MODE_SYMBOLS[value]}
+              </span>
+              <span className="mode-switcher__label">{MODE_LABELS[value]}</span>
             </span>
-            <span className="mode-switcher__label">{MODE_LABELS[value]}</span>
             {/* 色だけに依存せず、選択中であることを文字でも示す */}
             <span className="mode-switcher__state">{isActive ? '選択中' : '未選択'}</span>
           </button>
