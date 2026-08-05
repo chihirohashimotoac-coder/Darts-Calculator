@@ -66,15 +66,7 @@ export default function App() {
           <ModeSwitcher mode={calculator.mode} onChange={calculator.setMode} />
         </div>
 
-        <div className="app__cell app__cell--panel">
-          <ScoreDisplay
-            mode={calculator.mode}
-            value={calculator.currentValue}
-            copyFeedback={feedback}
-            onCopy={() => void copy(String(calculator.currentValue))}
-          />
-        </div>
-
+        {/* 引き算モードでは、計算の起点になる開始値を残り点数より先に表示する */}
         {isSubtraction && (
           <div className="app__cell app__cell--panel">
             <StartValueInput
@@ -84,6 +76,15 @@ export default function App() {
             />
           </div>
         )}
+
+        <div className="app__cell app__cell--panel">
+          <ScoreDisplay
+            mode={calculator.mode}
+            value={calculator.currentValue}
+            copyFeedback={feedback}
+            onCopy={() => void copy(String(calculator.currentValue))}
+          />
+        </div>
 
         <div className="app__cell app__cell--board">
           <Dartboard
