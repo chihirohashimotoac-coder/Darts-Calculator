@@ -1,0 +1,75 @@
+.app {
+  width: 100%;
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 1rem 0.85rem 2rem;
+  padding-left: max(0.85rem, env(safe-area-inset-left));
+  padding-right: max(0.85rem, env(safe-area-inset-right));
+  padding-bottom: max(2rem, env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.app__header {
+  padding-top: env(safe-area-inset-top);
+}
+
+.app__title {
+  margin: 0;
+  font-size: clamp(1.25rem, 5.5vw, 1.6rem);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.app__subtitle {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.app__layout {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.app__cell {
+  min-width: 0;
+}
+
+.app__footer {
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.app__footer p {
+  margin: 0;
+}
+
+/*
+ * PC など横幅に余裕がある場合の 2 カラム表示。
+ * DOM 順はスマートフォン向けの縦並び順を維持したまま、
+ * 盤面だけを左カラムへ配置する。
+ */
+@media (min-width: 60rem) {
+  .app__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    column-gap: 1.5rem;
+    row-gap: 0.85rem;
+    align-items: start;
+  }
+
+  .app__cell--board {
+    grid-column: 1;
+    grid-row: 1 / span 12;
+    position: sticky;
+    top: 1rem;
+  }
+
+  .app__cell--panel {
+    grid-column: 2;
+  }
+}

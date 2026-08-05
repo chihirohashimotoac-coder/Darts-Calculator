@@ -1,0 +1,55 @@
+.mode-switcher {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  padding: 0.35rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+}
+
+.mode-switcher__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  min-height: 3.75rem;
+  padding: 0.5rem 0.4rem;
+  border: 2px solid transparent;
+  border-radius: 0.7rem;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  cursor: pointer;
+}
+
+.mode-switcher__symbol {
+  font-size: 1.35rem;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.mode-switcher__label {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.mode-switcher__state {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.mode-switcher__button[aria-pressed='true'] {
+  background: var(--accent);
+  border-color: var(--accent-strong);
+  color: var(--accent-fg);
+}
+
+.mode-switcher__button[aria-pressed='true'] .mode-switcher__state {
+  font-weight: 700;
+}
+
+.mode-switcher__button:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}

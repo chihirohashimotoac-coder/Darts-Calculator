@@ -1,0 +1,101 @@
+:root {
+  /* 背景・面 */
+  --bg: #0d0f13;
+  --surface-1: #14171d;
+  --surface-2: #191d25;
+  --surface-3: #212630;
+  --border: #2e3542;
+  --border-strong: #465063;
+
+  /* 文字 */
+  --text: #f2f5f9;
+  --text-muted: #b3bdcc;
+
+  /* アクセント（モード表示など） */
+  --accent: #2f6fed;
+  --accent-strong: #5b8dff;
+  --accent-soft: #1c2c4d;
+  --accent-fg: #ffffff;
+
+  /* 状態色 */
+  --ok-fg: #58d68d;
+  --error-fg: #ff8a8a;
+  --error-bg: #3a1c20;
+  --danger-fg: #ff9c9c;
+  --danger-bg: #3a1c20;
+  --danger-border: #7d3a3f;
+  --focus-ring: #ffd54a;
+
+  /* ダーツボード */
+  --segment-dark: #1c1e23;
+  --segment-light: #f0e3c2;
+  --segment-red: #d02a32;
+  --segment-green: #17864a;
+  --board-surround: #0b0d11;
+  --board-edge: #4a525f;
+  --board-wire: #c3c9d2;
+  --board-number: #f6f7f9;
+  --highlight-fill: #fff8d6;
+  --highlight-stroke: #ffd54a;
+  --highlight-duration: 450ms;
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  /* 文字が極端に小さくならないようにする */
+  font-size: clamp(16px, 1.6vw, 18px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', 'Yu Gothic',
+    system-ui, -apple-system, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  /* 横スクロールを発生させない */
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
