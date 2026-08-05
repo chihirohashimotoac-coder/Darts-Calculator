@@ -1,0 +1,120 @@
+.history {
+  padding: 0.85rem 1rem 1rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+}
+
+.history__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.history__title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.history__count {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.history__empty {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.history__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-height: 22rem;
+  overflow-y: auto;
+}
+
+.history__item {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.45rem 0.5rem 0.45rem 0.35rem;
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+}
+
+.history__item--bust {
+  border-color: var(--danger-border);
+  background: var(--error-bg);
+}
+
+.history__order {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem;
+  height: 1.75rem;
+  border-radius: 0.4rem;
+  background: var(--surface-1);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.history__content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.2rem 0.6rem;
+  min-width: 0;
+}
+
+.history__throw {
+  font-size: 1.05rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.history__after {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.history__bust {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--error-fg);
+}
+
+/* 押し間違い防止のため、削除ボタンは十分な余白と大きさを確保する */
+.history__remove {
+  min-height: 2.5rem;
+  min-width: 3.75rem;
+  margin-left: 0.35rem;
+  padding: 0 0.7rem;
+  border: 1px solid var(--danger-border);
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--danger-fg);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.history__remove:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}

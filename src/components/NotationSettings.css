@@ -1,0 +1,72 @@
+.notation-settings {
+  padding: 0.85rem 1rem 1rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+}
+
+.notation-settings__title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.notation-settings__description {
+  margin: 0.25rem 0 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.notation-settings__fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.notation-settings__option {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 3rem;
+  padding: 0.35rem 0.6rem;
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  cursor: pointer;
+}
+
+.notation-settings__option:has(input:checked) {
+  border-color: var(--accent-strong);
+  background: var(--accent-soft);
+}
+
+.notation-settings__option input {
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: var(--accent-strong);
+  flex: none;
+}
+
+.notation-settings__option input:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+.notation-settings__option-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.notation-settings__option-label {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.notation-settings__option-example {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
