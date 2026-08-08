@@ -17,13 +17,13 @@ const OUT_DIR = resolve(__dirname, '../public/icons');
 /** アプリと同じナンバー配置。 */
 const BOARD_NUMBERS = [20, 1, 18, 4, 13, 6, 10, 15, 2, 17, 3, 19, 7, 16, 8, 11, 14, 9, 12, 5];
 
-/** src/geometry/dartboardGeometry.ts と同じ比率（missOuter = 205 を 1.0 とする）。 */
+/** src/geometry/dartboardGeometry.ts の RADII と同じ比率（missOuter = 205 を 1.0 とする）。 */
 const R = {
-  innerBull: 12 / 205,
-  outerBull: 26 / 205,
-  tripleInner: 96 / 205,
-  tripleOuter: 109 / 205,
-  doubleInner: 157 / 205,
+  innerBull: 16 / 205,
+  outerBull: 34 / 205,
+  tripleInner: 90 / 205,
+  tripleOuter: 110 / 205,
+  doubleInner: 148 / 205,
   doubleOuter: 170 / 205,
   boardOuter: 1,
 };

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { SEGMENTS, getSegmentById } from '../domain/segments';
 import {
+  MIN_RING_WIDTH,
   RADII,
   buildNumberLabelPositions,
   buildSegmentPath,
@@ -38,6 +39,25 @@ describe('buildSegmentPath', () => {
     expect(RADII.tripleOuter).toBeLessThan(RADII.doubleInner);
     expect(RADII.doubleInner).toBeLessThan(RADII.doubleOuter);
     expect(RADII.doubleOuter).toBeLessThan(RADII.missOuter);
+  });
+
+  it('トリプル・ダブル・ブルがタップしやすい幅を確保している', () => {
+    const tripleWidth = RADII.tripleOuter - RADII.tripleInner;
+    const doubleWidth = RADII.doubleOuter - RADII.doubleInner;
+    const outerBullWidth = RADII.outerBull - RADII.innerBull;
+
+    expect(tripleWidth).toBeGreaterThanOrEqual(MIN_RING_WIDTH);
+    expect(doubleWidth).toBeGreaterThanOrEqual(MIN_RING_WIDTH);
+    expect(outerBullWidth).toBeGreaterThanOrEqual(MIN_RING_WIDTH);
+    // インナーブルは円なので、直径で同等のタップ幅を確保する
+    expect(RADII.innerBull * 2).toBeGreaterThanOrEqual(MIN_RING_WIDTH);
+  });
+
+  it('シングル領域はリングを広げてもリングより広いままである', () => {
+    const innerSingleWidth = RADII.tripleInner - RADII.outerBull;
+    const outerSingleWidth = RADII.doubleInner - RADII.tripleOuter;
+    expect(innerSingleWidth).toBeGreaterThan(RADII.tripleOuter - RADII.tripleInner);
+    expect(outerSingleWidth).toBeGreaterThan(RADII.doubleOuter - RADII.doubleInner);
   });
 
   it('MISSはダブルリングより外側の円環である', () => {
