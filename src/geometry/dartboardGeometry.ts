@@ -5,21 +5,29 @@ import type { SegmentDefinition } from '../domain/segments';
  * ダーツボードの SVG 座標計算。
  * 中心を原点 (0, 0) とし、viewBox は正方形。外部画像は一切使用しない。
  *
- * 半径は実寸比を踏まえつつ、スマートフォンでのタップ精度を確保するために
- * BULL とダブル／トリプルリングをわずかに広げている。
+ * 半径は実寸比をそのまま使わず、スマートフォンでのタップ精度を優先して
+ * BULL・トリプル・ダブルを実寸比より大きく取っている。
+ * 幅 360px 程度の端末では 1 単位あたり約 0.86px なので、
+ * リング幅 20 単位は実測で約 17px のタップ領域になる。
  */
 export const RADII = {
-  innerBull: 12,
-  outerBull: 26,
-  tripleInner: 96,
-  tripleOuter: 109,
-  doubleInner: 157,
+  innerBull: 16,
+  outerBull: 34,
+  tripleInner: 90,
+  tripleOuter: 110,
+  doubleInner: 148,
   doubleOuter: 170,
   /** MISS キャッチ領域の外周。ここより外側は入力を発生させない。 */
   missOuter: 205,
   /** 外周のナンバーを配置する半径。 */
   numberRing: 188,
 } as const;
+
+/**
+ * タップ精度のために確保するリング幅の下限（SVG 単位）。
+ * これを下回ると、スマートフォンでの誤タップが増えるため回帰テストで守る。
+ */
+export const MIN_RING_WIDTH = 18;
 
 export const VIEWBOX_RADIUS = 210;
 export const VIEWBOX = `${-VIEWBOX_RADIUS} ${-VIEWBOX_RADIUS} ${VIEWBOX_RADIUS * 2} ${VIEWBOX_RADIUS * 2}`;
